@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class Search extends Component {
 
@@ -6,20 +7,34 @@ class Search extends Component {
         text:''
     }
 
-    onChange = () => {
-        this.setState
+    static propTypes = {
+        searchUsers: PropTypes.func.isRequired
     }
+    
+    onSubmit = e => {
+        e.preventDefault()
+        this.props.searchUsers(this.state.text)
+        this.setState({ text: "" })
+    }
+
+    onChange = e => this.setState({ [e.target.name]: e.target.value })
+
     render() {
         return (
             <div>
-                <form className="form">
-                    <input type="text" name='text' placeholder='search users...' />
+                <form onSubmit ={this.onSubmit} className="form">
+                    <input 
+                    type="text" 
+                    name='text' 
+                    placeholder='search users...' 
+                    value={this.state.text}
+                    onChange={this.onChange}
+                    />
+                    
                     <input 
                     type="submit"
                     value='Search'
                     className='btn btn-dark btn-block'
-                    value={this.state.text}
-                    onChange={this.onChange}
                     />
                 </form>
             </div>
