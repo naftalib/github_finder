@@ -1,3 +1,4 @@
 # Getting Started with Create React App
 
-About
+# About
+This app is a search engine for any github user, using the github API. 
