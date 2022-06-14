@@ -1,5 +1,5 @@
 import UserItem from './UserItem'
-import Spinner from '../layout/Spinner'
+import Spinner from '../layouts/Spinner'
 import PropTypes from 'prop-types'
 
 
